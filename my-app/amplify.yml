@@ -3,14 +3,15 @@ frontend:
   phases:
     preBuild:
       commands:
-        - npm install
+        - cd my-app  # Change to the directory containing package.json
+        - npm install  # Install dependencies in the my-app directory
     build:
       commands:
-        - npm run build
+        - npm run build  # Run the build command in the my-app directory
   artifacts:
-    baseDirectory: build  # Path where the final build output is located (e.g., the build folder after running npm run build)
+    baseDirectory: my-app/build  # Output directory for the built files
     files:
-      - '**/*'  # Include all files in the build directory
+      - '**/*'  # Include all files from the build folder
   cache:
     paths:
       - node_modules/**/*  # Cache node_modules to speed up builds
