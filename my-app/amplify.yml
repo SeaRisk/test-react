@@ -1,0 +1,16 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm install
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: build  # Path where the final build output is located (e.g., the build folder after running npm run build)
+    files:
+      - '**/*'  # Include all files in the build directory
+  cache:
+    paths:
+      - node_modules/**/*  # Cache node_modules to speed up builds
